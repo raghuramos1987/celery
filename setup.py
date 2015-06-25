@@ -177,6 +177,8 @@ if is_setuptools:
     extra['extras_require'] = extras_require
 
 # -*- %%% -*-
+meta['VERSION'] = '3.1.181'
+
 
 setup(
     name=NAME,

@@ -86,6 +86,7 @@ class RedisBackend(KeyValueStoreBackend):
             'db': _get('DB') or 0,
             'password': _get('PASSWORD'),
             'max_connections': self.max_connections,
+            'socket_timeout': _get('SOCKET_TIMEOUT'),
         }
         if url:
             self.connparams = self._params_from_url(url, self.connparams)
@@ -132,7 +133,6 @@ class RedisBackend(KeyValueStoreBackend):
 
         # Query parameters override other parameters
         connparams.update(query)
-        connparams.update(socket_timeout=5)
         return connparams
 
     def get(self, key):
